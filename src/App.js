@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Form from './components/Form';
+import Image from './components/Image';
 
 const App = props => {
 
@@ -35,15 +36,15 @@ const App = props => {
   }
 
   return (
-    <div className="flex justify-center">
-      {
-        !state.partying ?
-        <Form events={[setImage, setAudio, startParty]}/>
-        :
-        <div className="w-full h-screen" style={{ backgroundImage:`url(${state.image})` }}>
-          Partying
-        </div>
-      }
+    <div className="h-screen from-blue-500 to-purple-500 bg-gradient-to-r w-full block">
+      <div className="h-full flex justify-center items-center">
+        {
+          !state.partying ?
+          <Form events={[setImage, setAudio, startParty]}/>
+          :
+          <Image src={state.image}/>
+        }
+      </div>
     </div>
   );
 
